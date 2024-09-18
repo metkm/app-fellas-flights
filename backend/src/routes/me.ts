@@ -26,7 +26,7 @@ router.post<{ flight: Flight }>("/flights", async (req, res) => {
   });
 
   if (isFound) {
-    return res.send({ message: "Already Booked" });
+    return res.status(409).send({ message: "Already Booked" });
   }
 
   await collection.insertOne(req.body.flight);

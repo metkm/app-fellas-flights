@@ -55,7 +55,10 @@ export default function Flight({ flight }: { flight: TFlight }) {
       body: params,
       onResponse: (response) => {
         toast.success(response.response._data.message)
-        navigate('/flights')
+
+        if (response.response.status !== 409) {
+          navigate('/flights')
+        }
       }
     }),
   })
