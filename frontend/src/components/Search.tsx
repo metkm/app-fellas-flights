@@ -53,7 +53,7 @@ export default function Search() {
   };
 
   return (
-    <section className="flex flex-col gap-4 p-4 bg-white rounded-lg">
+    <section className="flex flex-col gap-4 p-4 bg-white border rounded-lg">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <IoAirplaneSharp size={24} />
