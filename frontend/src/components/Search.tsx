@@ -12,6 +12,8 @@ export default function Search() {
 
   // const direction = searchParams.get("flightDirection") || undefined;
 
+  const now = new Date()
+
   const from = searchParams.get("fromScheduleDate");
   const dateFrom = from ? new Date(from) : undefined;
 
@@ -97,6 +99,9 @@ export default function Search() {
               mode="single"
               selected={dateFrom}
               onSelect={(val) => handleDateChange("fromScheduleDate", val)}
+              disabled={date => {
+                return date <= now
+              }}
               initialFocus
             />
           </PopoverContent>
@@ -121,7 +126,7 @@ export default function Search() {
               selected={toDate}
               onSelect={(val) => handleDateChange("toScheduleDate", val)}
               disabled={(date) => {
-                if (!dateFrom) return false;
+                if (!dateFrom) return true;
 
                 const diffDay = getDayDiff(date);
                 if (!diffDay) return false;
