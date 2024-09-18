@@ -17,8 +17,8 @@ VITE_API_BASE=http://localhost:3050
 
 Backend
 
-cd into the backend folder and then run `npm run build`  and `npm run start`
+cd into the backend folder and then run `npm run install`, `npm run build`  and `npm run start`
 
 Frontend
 
-`npm run build` and `npm run preview`
+`npm run install`, `npm run build` and `npm run preview`
