@@ -27,7 +27,7 @@ export default function Extras() {
       {extras.map((extra) => (
         <li
           key={extra.id}
-          className="grid relative items-end *:col-start-1 *:row-start-1 aspect-square grow text-white rounded-lg overflow-hidden bg-cover"
+          className="grid relative items-end *:col-start-1 *:row-start-1 aspect-square flex-1 text-white rounded-lg overflow-hidden bg-cover"
           style={{ backgroundImage: `url(${extra.image})` }}
         >
           <div className='p-4 z-10'>

@@ -54,14 +54,14 @@ export default function Search() {
 
   return (
     <section className="flex flex-col gap-4 p-4 bg-white border rounded-lg">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between">
         <div className="flex items-center gap-2">
           <IoAirplaneSharp size={24} />
           <p className="font-bold text-lg uppercase">Book Your Flight</p>
         </div>
 
         <div className="flex">
-          <Button
+          {/* <Button
             onClick={() => handleChange("flightDirection", "A")}
             variant={direction === "D" ? "secondary" : "default"}
             className="rounded-r-none"
@@ -74,7 +74,7 @@ export default function Search() {
             className="rounded-l-none"
           >
             One way
-          </Button>
+          </Button> */}
         </div>
       </div>
 
