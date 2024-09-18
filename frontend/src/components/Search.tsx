@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom";
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const direction = searchParams.get("flightDirection") || undefined;
+  // const direction = searchParams.get("flightDirection") || undefined;
 
   const from = searchParams.get("fromScheduleDate");
   const dateFrom = from ? new Date(from) : undefined;
@@ -26,12 +26,12 @@ export default function Search() {
     return diffDay;
   };
 
-  const handleChange = (key: string, val: string) => {
-    setSearchParams((params) => {
-      params.set(key, val);
-      return params;
-    });
-  };
+  // const handleChange = (key: string, val: string) => {
+  //   setSearchParams((params) => {
+  //     params.set(key, val);
+  //     return params;
+  //   });
+  // };
 
   const handleDateChange = (key: string, val?: Date) => {
     if (!val) return;
