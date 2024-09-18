@@ -21,4 +21,4 @@ cd into the backend folder and then run `npm run build`  and `npm run start`
 
 Frontend
 
-
+`npm run build` and `npm run preview`
