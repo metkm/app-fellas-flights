@@ -22,7 +22,7 @@ export default function Flights() {
   }
 
   return (
-    <ul className="flex flex-col gap-4 grow">
+    <ul className="flex flex-col gap-4 overflow-y-auto pt-4 shrink-0 grow">
       {query.data.flights.length > 0 ? (
         query.data?.flights.map((flight) => (
           <li key={flight.id}>

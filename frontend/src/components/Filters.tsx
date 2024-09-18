@@ -47,7 +47,7 @@ export default function Filters() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col lg:sticky top-0 mt-4 gap-4">
       <fieldset>
         <legend className="font-semibold ml-2 mb-4">Sort By</legend>
 

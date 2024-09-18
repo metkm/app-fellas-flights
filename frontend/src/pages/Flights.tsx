@@ -14,13 +14,13 @@ export default function Flights() {
   });
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col overflow-hidden gap-4">
       <Link to={"/"} className={`${buttonVariants({ variant: 'default' })} w-max`}>Back to all flights</Link>
 
       {query.isPending ? (
         <Loading />
       ) : (
-        <ol className="flex flex-wrap gap-4">
+        <ol className="flex flex-wrap overflow-y-auto gap-4">
           {query.data?.map((flight) => (
             <li key={flight.id}>
               <MyFlight flight={flight} />

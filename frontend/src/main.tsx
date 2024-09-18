@@ -26,7 +26,7 @@ const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <main className='flex flex-col min-h-screen p-4'>
+    <main className='flex flex-col max-h-screen lg:overflow-hidden p-4'>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
