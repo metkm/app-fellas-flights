@@ -10,7 +10,7 @@ export interface Flight {
     iataMain: string
     iataSub: string
   }
-  actualLandingType: string
+  actualLandingTime?: string
   estimatedLandingTime: string
   flightDirection: string
   flightName: string

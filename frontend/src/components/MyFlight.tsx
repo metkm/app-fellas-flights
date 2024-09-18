@@ -4,7 +4,7 @@ import { LineSeperator } from "./Flight";
 import { getHourDifference } from "@/lib/utils";
 
 export default function MyFlight({ flight }: { flight: Flight }) {
-  const estimatedLandingTime = new Date(flight.estimatedLandingTime);
+  const estimatedLandingTime = new Date(flight.actualLandingTime || flight.estimatedLandingTime);
   const scheduleDateTime = new Date(flight.scheduleDateTime);
 
   const diff = getHourDifference(estimatedLandingTime, scheduleDateTime);

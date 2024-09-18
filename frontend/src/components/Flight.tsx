@@ -38,10 +38,10 @@ export const LineSeperator = <T extends HTMLDivElement>(props: HtmlHTMLAttribute
 export default function Flight({ flight }: { flight: TFlight }) {
   const navigate = useNavigate()
 
-  const estimatedLandingTime = new Date(flight.estimatedLandingTime);
+  const actualLandingTime = new Date(flight.actualLandingTime || flight.estimatedLandingTime);
   const scheduleDateTime = new Date(flight.scheduleDateTime);
 
-  const diff = getHourDifference(estimatedLandingTime, scheduleDateTime)
+  const diff = getHourDifference(actualLandingTime, scheduleDateTime)
 
   const handleBookFlight = () => {
     mutation.mutate({
@@ -80,7 +80,7 @@ export default function Flight({ flight }: { flight: TFlight }) {
             </div>
 
             <LineSeperator />
-            <ArrivalAndDeparture st="Arrival" date={estimatedLandingTime} code="123" />
+            <ArrivalAndDeparture st="Arrival" date={actualLandingTime} code="123" />
           </div>
         </div>
 
