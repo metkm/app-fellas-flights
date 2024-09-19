@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom";
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // const direction = searchParams.get("flightDirection") || undefined;
+  const direction = searchParams.get("flightDirection") || undefined;
 
   const now = new Date()
 
@@ -28,12 +28,12 @@ export default function Search() {
     return diffDay;
   };
 
-  // const handleChange = (key: string, val: string) => {
-  //   setSearchParams((params) => {
-  //     params.set(key, val);
-  //     return params;
-  //   });
-  // };
+  const handleChange = (key: string, val: string) => {
+    setSearchParams((params) => {
+      params.set(key, val);
+      return params;
+    });
+  };
 
   const handleDateChange = (key: string, val?: Date) => {
     if (!val) return;
@@ -63,20 +63,20 @@ export default function Search() {
         </div>
 
         <div className="flex">
-          {/* <Button
+          <Button
             onClick={() => handleChange("flightDirection", "A")}
             variant={direction === "D" ? "secondary" : "default"}
             className="rounded-r-none"
           >
-            Round trip
+            Arrival
           </Button>
           <Button
             onClick={() => handleChange("flightDirection", "D")}
             variant={direction === "A" ? "secondary" : "default"}
             className="rounded-l-none"
           >
-            One way
-          </Button> */}
+            Departure
+          </Button>
         </div>
       </div>
 

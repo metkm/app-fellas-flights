@@ -1,16 +1,16 @@
+import Flight from "@/components/Flight";
 import Loading from "@/components/ui/Loading";
-import MyFlight from "@/components/MyFlight";
 import { buttonVariants } from "@/components/ui/button";
 
 import { api } from "@/api";
 import { useQuery } from "@tanstack/react-query";
-import { Flight } from "../../../shared/types/flight";
 import { Link } from "react-router-dom";
+import { FlightDeparture } from "../../../shared/types/flight"
 
 export default function Flights() {
   const query = useQuery({
     queryKey: ["meFlights"],
-    queryFn: () => api<Flight[]>("/me/flights"),
+    queryFn: () => api<FlightDeparture[]>("/me/flights"),
   });
 
   return (
@@ -20,10 +20,10 @@ export default function Flights() {
       {query.isPending ? (
         <Loading />
       ) : (
-        <ol className="flex flex-wrap overflow-y-auto gap-4">
+        <ol className="grid lg:grid-cols-2 overflow-y-auto gap-4">
           {query.data?.map((flight) => (
             <li key={flight.id}>
-              <MyFlight flight={flight} />
+              <Flight flight={flight} booked={true} />
             </li>
           ))}
         </ol>

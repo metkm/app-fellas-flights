@@ -7,7 +7,14 @@ import { FlightResponse } from "../../../shared/types/flight";
 import { Button } from "@/components/ui/button";
 
 export default function Flights() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const now = new Date()
+  // Remove 1 hour because the API uses UCT+2.0
+  now.setHours(now.getHours() + (Math.abs(now.getTimezoneOffset()) - 1) / 60)
+
+  const [searchParams, setSearchParams] = useSearchParams({
+    flightDirection: "D",
+    fromDateTime: now.toISOString().split('.').at(0)!,
+  });
 
   const query = useSuspenseQuery({
     queryKey: ["flights", Object.fromEntries(searchParams)],
@@ -18,8 +25,8 @@ export default function Flights() {
   });
 
   const clearFilters = () => {
-    setSearchParams(undefined)
-  }
+    setSearchParams(undefined);
+  };
 
   return (
     <ul className="flex flex-col gap-4 overflow-y-auto pt-4 shrink-0 grow">
@@ -32,7 +39,7 @@ export default function Flights() {
       ) : (
         <div className="flex flex-col gap-2 self-center">
           <p>No results are found</p>
-          <Button onClick={clearFilters} variant={'default'}>
+          <Button onClick={clearFilters} variant={"default"}>
             Clear Filters
           </Button>
         </div>
